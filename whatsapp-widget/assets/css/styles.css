@@ -1,46 +1,24 @@
 @font-face {
-    font-family: "Lato-Regular";
-    src: url(../fonts/Lato-Regular.ttf);
-}
-
-@font-face {
-    font-family: "Lato-Black";
-    src: url(../fonts/Lato-Black.ttf);
-}
-
-@font-face {
-    font-family: "Lato-Bold";
-    src: url(../fonts/Lato-Bold.ttf);
-}
-
-@font-face {
-    font-family: "Lato-Light";
-    src: url(../fonts/Lato-Light.ttf);
-}
-
-@font-face {
-    font-family: "Lato-Medium";
-    src: url(../fonts/Lato-Medium.ttf);
-}
-
-@font-face {
-    font-family: "Lato-Semibold";
-    src: url(../fonts/Lato-Semibold.ttf);
-}
-
-@font-face {
-    font-family: "OpenSans-Bold";
-    src: url(../fonts/OpenSans-Bold.ttf);
-}
-
-@font-face {
     font-family: "OpenSans-Regular";
     src: url(../fonts/OpenSans-Regular.ttf);
 }
 
-@font-face {
-    font-family: "OpenSans-Semibold";
-    src: url(../fonts/OpenSans-Semibold.ttf);
+/* widget entrance animation */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInRight {
+    animation-name: fadeInRight;
+    animation-duration: 1s;
+    animation-fill-mode: both;
 }
 
 html {
@@ -238,15 +216,16 @@ body {
     transition: all 0.3s ease 0s;
 }
 
+/* chat bubble tail — inline SVG corner, no extra HTTP request */
 .whatsapp-content::before {
     position: absolute;
-    background-image: url(../images/whatsapp-chat.webp);
-    background-size: contain;
     content: "";
     top: 0px;
     left: -12px;
     width: 12px;
-    height: 19px;
+    height: 15px;
+   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'><path d='M100 0 L100 125 L92 125 L21 27 C17 21 19 12 26 5 L33 0 Z' fill='white'/></svg>");
+    background-size: contain;
     background-position: 50% 50%;
     background-repeat: no-repeat;
 }
@@ -273,45 +252,6 @@ body {
     color: rgba(17, 17, 17, 0.5);
     margin-right: -8px;
     margin-bottom: -4px;
-}
-
-.floating-button-comp {
-    color: rgb(255, 255, 255);
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 20px;
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-appearance: none;
-    padding: 8px 12px;
-    border-radius: 20px;
-    border-width: initial;
-    border-style: none;
-    border-color: initial;
-    border-image: initial;
-    background: rgb(79, 206, 93);
-    margin: 20px;
-    overflow: hidden;
-}
-
-.icon-button-comp {
-    width: 16px;
-    height: 16px;
-    fill: rgb(255, 255, 255);
-    z-index: 1;
-    flex: 0 0 16px;
-}
-
-.text-button-comp {
-    margin-left: 8px;
-    margin-right: 8px;
-    z-index: 1;
-    color: rgb(255, 255, 255);
 }
 
 .floating-bubble {
