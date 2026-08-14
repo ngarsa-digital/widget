@@ -1,6 +1,3 @@
-// wow init
-new WOW().init();
-
 // widget whatsapp
 let floatingBubble = document.getElementById('floating-bubble'),
     floatingClose = document.getElementById('floating-button'),
