@@ -1,6 +1,6 @@
 # ngarsa-widget
 
-A repository of lightweight, drop-in widgets created by [Ngarsa](https://github.com/risyandi).
+A repository of lightweight, drop-in widgets created by [Ngarsa](https://github.com/ngarsa-digital).
 
 ## Widgets
 
@@ -24,7 +24,7 @@ A self-contained, zero-dependency floating WhatsApp chat button that overlays on
 
 ### Quick start
 
-**1. Clone or copy the `whatsapp-widget/` folder into your project.**
+**1. Clone or copy the `widget/` folder into your project.**
 
 **2. Configure your WhatsApp number.** Pass the phone number as a URL parameter on the iframe `src`. The widget reads these query-string parameters:
 
@@ -35,9 +35,8 @@ A self-contained, zero-dependency floating WhatsApp chat button that overlays on
 | `whatsapp_text`     | *(empty)*         | Overrides the welcome message text inside the bubble    |
 
 ```html
-<iframe src="/path/to/whatsapp-widget/index.html?phone_number=628123456789&whatsapp_name=My+Business&whatsapp_text=Hello%21"
-        style="position:fixed;bottom:0;right:0;border:0;width:0;height:0;z-index:9999999;"
-        aria-hidden="true"></iframe>
+<iframe src="https://widget.ngarsa.com/?phone_number=628123456789&whatsapp_name=My+Business&whatsapp_text=Hello%21"
+        style="position: fixed; bottom: 20px; right: 20px; border: none; height: 100%; width: 100%; z-index: 9999;" aria-hidden="true"></iframe>
 ```
 
 > 💡 When `whatsapp_name` is supplied, the avatar image in the header is hidden to keep the header clean — useful if you want a text-only header.
@@ -46,15 +45,14 @@ A self-contained, zero-dependency floating WhatsApp chat button that overlays on
 
 ```html
 <!-- Ngarsa WhatsApp widget -->
-<script src="/path/to/whatsapp-widget/index.html" defer></script>
+<script src="https://widget.ngarsa.com/" defer></script>
 ```
 
 > ⚠️ Because the widget markup lives inside `index.html`, the easiest embedding is via an `<iframe>`. Note that the widget itself uses `position: fixed`, so the iframe just needs to exist — width/height don't matter:
 >
 > ```html
-> <iframe src="/path/to/whatsapp-widget/index.html"
->         style="position:fixed;bottom:0;right:0;border:0;width:0;height:0;z-index:9999999;"
->         aria-hidden="true"></iframe>
+> <iframe src="https://widget.ngarsa.com/"
+>         style="position: fixed; bottom: 20px; right: 20px; border: none; height: 100%; width: 100%; z-index: 9999" aria-hidden="true"></iframe>
 > ```
 >
 > For tighter integration (single DOM, no iframe overhead), copy the `<div class="wrapper-floating">…</div>` block from `index.html` directly into your page and load `assets/css/styles.css` + `assets/js/widget.js` alongside it.
@@ -62,7 +60,7 @@ A self-contained, zero-dependency floating WhatsApp chat button that overlays on
 ### Project structure
 
 ```
-whatsapp-widget/
+widget/
 ├── index.html                              # Widget markup
 └── assets/
     ├── js/
