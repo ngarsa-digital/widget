@@ -6,7 +6,7 @@ A repository of lightweight, drop-in widgets created by [Ngarsa](https://github.
 
 | Widget | Description | Status |
 |--------|-------------|--------|
-| [whatsapp-widget](./whatsapp-widget) | Floating WhatsApp deep-link button for any website | ✅ Stable |
+| whatsapp-widget | Floating WhatsApp deep-link button for any website | ✅ Stable |
 
 ---
 
@@ -26,11 +26,21 @@ A self-contained, zero-dependency floating WhatsApp chat button that overlays on
 
 **1. Clone or copy the `whatsapp-widget/` folder into your project.**
 
-**2. Configure your WhatsApp number.** Open `assets/js/widget.js` and replace `6281380000` with your number in international format (no `+`, no leading zeros):
+**2. Configure your WhatsApp number.** Pass the phone number as a URL parameter on the iframe `src`. The widget reads these query-string parameters:
 
-```js
-openNewTab('https://wa.me/YOUR_NUMBER_HERE?text=' + encodeText + '');
+| Parameter           | Default           | Description                                            |
+|---------------------|-------------------|--------------------------------------------------------|
+| `phone_number`      | `62810000000`     | WhatsApp number (international, no `+`, no leading `0`) |
+| `whatsapp_name`     | `Ngarsa Official` | Display name shown in the chat header                   |
+| `whatsapp_text`     | *(empty)*         | Overrides the welcome message text inside the bubble    |
+
+```html
+<iframe src="/path/to/whatsapp-widget/index.html?phone_number=628123456789&whatsapp_name=My+Business&whatsapp_text=Hello%21"
+        style="position:fixed;bottom:0;right:0;border:0;width:0;height:0;z-index:9999999;"
+        aria-hidden="true"></iframe>
 ```
+
+> 💡 When `whatsapp_name` is supplied, the avatar image in the header is hidden to keep the header clean — useful if you want a text-only header.
 
 **3. Embed it.** Add this to your page (just before `</body>`):
 
@@ -68,10 +78,11 @@ whatsapp-widget/
 
 ### Customization
 
-| Want to change… | Edit |
-|------------------|------|
-| Phone number / default message | `assets/js/widget.js` → `wa.me/…` URL |
-| Header name / status text | `index.html` → `.name-floating`, `.status-floating` |
+| Want to change… | Where |
+| ------------------ | ------- |
+| Phone number | iframe `src` → `?phone_number=…` |
+| Header / display name | iframe `src` → `?whatsapp_name=…` |
+| Welcome bubble message | iframe `src` → `?whatsapp_text=…` |
 | Header / avatar | `assets/css/styles.css` → `.floating-fto` `background-image` + `assets/images/favicon.png` |
 | Header color (default teal-green gradient) | `assets/css/styles.css` → `.floating-header-comp` `background` |
 | Bubble color (default WhatsApp green, `#4FCE5D`) | `index.html` → `fill` attribute on the WhatsApp icon `<svg>` |
