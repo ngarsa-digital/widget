@@ -1,3 +1,10 @@
+/**
+ * ngarsa-widget - Test Suite
+ * Created by Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * Contact: hello@ngarsa.com
+ * License: MIT
+ */
+
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import { createNgarsaWidget } from "../src/index";
 
@@ -185,6 +192,19 @@ describe("NgarsaWidget", () => {
     const bubbleImg = el?.querySelector(".ngarsa-bubble-img") as HTMLImageElement;
     expect(bubbleImg).not.toBeNull();
     expect(bubbleImg.src).toBe("https://example.com/logo.png");
+
+    // Update with background pattern image
+    widget.updateOptions({
+      assets: { backgroundPatternUrl: "assets/images/whatsapp-back.png" },
+    });
+    const bodyBg = el?.querySelector(".ngarsa-body-bg") as HTMLElement;
+    expect(bodyBg.style.backgroundImage).toContain("whatsapp-back.png");
+
+    // Hide background pattern
+    widget.updateOptions({
+      assets: { hideBackgroundPattern: true },
+    });
+    expect(bodyBg.style.backgroundImage).toBe("none");
 
     widget.destroy();
   });
