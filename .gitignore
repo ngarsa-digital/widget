@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build artifacts (dist is published via npm prepublishOnly; typically built on demand)
+# If publishing built files directly from git or CDN without CI, comment out /dist
+dist/
+
+# Testing & Coverage
+coverage/
+*.lcov
+.nyc_output/
+
+# Logs & Diagnostics
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+bun.lockb
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary / Cache directories
+.temp/
+.tmp/
+tmp/
+.cache/
+.turbo/
+.eslintcache
+*.tsbuildinfo

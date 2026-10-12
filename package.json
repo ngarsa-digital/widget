@@ -1,0 +1,47 @@
+{
+  "name": "ngarsa-widget",
+  "version": "1.0.0",
+  "description": "Lightweight, customizable floating WhatsApp chat widget for websites and webapps.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "unpkg": "./dist/index.global.js",
+  "jsdelivr": "./dist/index.global.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "demo": "bun x serve ./demo -l 3000",
+    "prepublishOnly": "bun run test && bun run build"
+  },
+  "keywords": [
+    "whatsapp",
+    "widget",
+    "chat-widget",
+    "whatsapp-widget",
+    "floating-button",
+    "typescript"
+  ],
+  "author": "Ngarsa <hello@ngarsa.com> (https://risyandi.com)",
+  "homepage": "https://ngarsa.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "happy-dom": "^17.1.0",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}

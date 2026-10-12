@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--
+  ngarsa-widget - Interactive Showcase & Playground
+  Created by Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+  Contact: hello@ngarsa.com
+  License: MIT
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NGARSA WIDGET — WhatsApp Chat Library for Modern Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <!-- Persistent 4% SVG Noise Overlay -->
+  <svg class="noise-overlay" xmlns="http://www.w3.org/2000/svg">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+  </svg>
+
+  <!-- Fixed Header / Navigation -->
+  <header class="header-nav">
+    <a href="#" class="brand-logo">- NGARSA</a>
+    
+    <nav class="nav-pill">
+      <a href="#quickstart" class="nav-link">QUICKSTART</a>
+      <a href="#playground" class="nav-link">PLAYGROUND</a>
+      <a href="#features" class="nav-link">FEATURES</a>
+      <a href="#creators" class="nav-link">CREATORS</a>
+    </nav>
+
+    <a href="https://www.npmjs.com/package/ngarsa-widget" target="_blank" rel="noopener noreferrer" class="cart-pill">
+      NPM PACKAGE
+      <span class="badge-counter">v1.0.0</span>
+    </a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-centerpiece">
+      <!-- Floating Organic Cards -->
+      <div class="floating-card card-1">
+        <div class="floating-card-tag">ZERO DEPENDENCY</div>
+        <div class="floating-card-text">Pure TypeScript library package under 13 KB minified.</div>
+      </div>
+
+      <div class="floating-card card-2">
+        <div class="floating-card-tag">INSTANT INTEGRATION</div>
+        <div class="floating-card-text">One line of code in Bun, npm, React, Vue, or plain HTML.</div>
+      </div>
+
+      <div class="floating-card card-3">
+        <div class="floating-card-tag">ACCESSIBLE</div>
+        <div class="floating-card-text">Full keyboard support with Escape & Enter controls.</div>
+      </div>
+
+      <!-- Massive Anton Text -->
+      <h1 class="hero-title" id="hero-title">
+        <span class="hero-letter" style="animation-delay: 0.05s;">N</span>
+        <span class="hero-letter" style="animation-delay: 0.10s;">G</span>
+        <span class="hero-letter" style="animation-delay: 0.15s;">A</span>
+        <span class="hero-letter" style="animation-delay: 0.20s;">R</span>
+        <span class="hero-letter" style="animation-delay: 0.25s;">S</span>
+        <span class="hero-letter" style="animation-delay: 0.30s;">A</span>
+      </h1>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="hero-description">
+        Ngarsa Widget transforms conversational contact into an effortless, branded experience. Built for production webapps with custom colors, assets, and typography — without asset bloat.
+      </div>
+      <div class="hero-meta">
+        <span>ORIGIN: JAKARTA / GLOBAL</span>
+        <span>RUNTIME: UNIVERSAL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Playground Section -->
+  <section class="section-container" id="playground">
+    <div class="section-label">LIVE CUSTOMIZER</div>
+    <h2 class="section-title">TEST DRIVE</h2>
+
+    <div class="playground-grid">
+      <div class="customizer-card">
+        <div class="field-group">
+          <label class="field-label" for="cfg-name">AGENT / BUSINESS NAME</label>
+          <input type="text" id="cfg-name" class="field-input" value="Ngarsa Concierge" />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="cfg-status">STATUS LINE</label>
+          <input type="text" id="cfg-status" class="field-input" value="Typically replies in minutes" />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="cfg-welcome">WELCOME MESSAGE</label>
+          <input type="text" id="cfg-welcome" class="field-input" value="Welcome to Ngarsa! How can we assist your business today?" />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="cfg-color">PRIMARY BRAND COLOR</label>
+          <div class="color-picker-row">
+            <input type="color" id="cfg-color" class="color-swatch-input" value="#01472e" />
+            <input type="text" id="cfg-color-hex" class="field-input" value="#01472e" />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="cfg-avatar-mode">AVATAR GENERATOR / CUSTOM LOGO</label>
+          <select id="cfg-avatar-mode" class="field-select">
+            <option value="generator" selected>DYNAMIC AVATAR GENERATOR (INITIALS + BRAND COLOR)</option>
+            <option value="custom">CUSTOM AVATAR IMAGE URL</option>
+            <option value="hidden">HIDE AVATAR</option>
+          </select>
+        </div>
+
+        <div class="field-group" id="group-custom-avatar" style="display: none;">
+          <label class="field-label" for="cfg-avatar-url">CUSTOM AVATAR IMAGE URL</label>
+          <input type="text" id="cfg-avatar-url" class="field-input" placeholder="https://example.com/avatar.jpg" />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="cfg-bubble-mode">FLOATING TOGGLE BUBBLE ICON</label>
+          <select id="cfg-bubble-mode" class="field-select">
+            <option value="whatsapp" selected>DEFAULT WHATSAPP VECTOR ICON</option>
+            <option value="avatar">SYNC WITH AGENT AVATAR / LOGO</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="cfg-bg-pattern">CHAT BODY BACKGROUND (WHATSAPP PATTERN)</label>
+          <select id="cfg-bg-pattern" class="field-select">
+            <option value="whatsapp" selected>WHATSAPP DOODLE PATTERN (assets/images/whatsapp-back.png)</option>
+            <option value="minimal">MINIMAL VECTOR SVG PATTERN</option>
+            <option value="none">PLAIN SOLID BACKGROUND</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="cfg-position">WIDGET POSITION</label>
+          <select id="cfg-position" class="field-select">
+            <option value="bottom-right" selected>BOTTOM RIGHT</option>
+            <option value="bottom-left">BOTTOM LEFT</option>
+          </select>
+        </div>
+
+        <div style="display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap;">
+          <button type="button" id="btn-apply-custom" class="btn-pill">APPLY CHANGES</button>
+          <button type="button" id="btn-toggle-widget" class="btn-pill secondary">TOGGLE WIDGET</button>
+        </div>
+      </div>
+
+      <div style="background: var(--color-sage); border-radius: 2.5rem; padding: 48px; box-shadow: var(--shadow-forest);">
+        <div class="section-label" style="color: var(--color-forest);">INTERACTIVE PREVIEW</div>
+        <h3 style="font-family: var(--font-display); font-size: 38px; text-transform: uppercase; margin-bottom: 20px;">
+          SEAMLESS BRAND ADAPTATION
+        </h3>
+        <p style="font-size: 14px; line-height: 1.7; color: var(--color-forest); margin-bottom: 24px;">
+          Adjust the settings on the left to see the floating WhatsApp widget and dynamically generated avatar reconfigure instantly without page reload.
+        </p>
+
+        <!-- Live Avatar Preview Card -->
+        <div style="background: #ffffff; border-radius: 1.5rem; padding: 20px 24px; margin-bottom: 28px; display: flex; align-items: center; gap: 20px; box-shadow: 0 10px 25px rgba(1, 71, 46, 0.08);">
+          <img id="avatar-live-preview" src="" alt="Avatar Preview" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-forest);" />
+          <div>
+            <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-forest); opacity: 0.7;">GENERATED AVATAR OUTPUT</div>
+            <div id="avatar-live-name" style="font-size: 16px; font-weight: 700; color: var(--color-forest);">Ngarsa Concierge</div>
+            <div id="avatar-live-initials" style="font-size: 12px; font-weight: 600; opacity: 0.8; margin-top: 2px;">Initials: NC · Zero External Lag</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;">
+          <div>✓ ZERO ASSET DOWNLOAD LAG</div>
+          <div>✓ CSS INLINE ISOLATION</div>
+          <div>✓ SSR & NEXT.JS COMPATIBLE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quickstart Section -->
+  <section class="quickstart-section" id="quickstart">
+    <div class="section-label">DEVELOPER INTEGRATION</div>
+    <h2 class="section-title">QUICKSTART</h2>
+
+    <div class="tabs-header">
+      <button class="tab-btn active" data-tab="tab-bun">BUN</button>
+      <button class="tab-btn" data-tab="tab-npm">NPM</button>
+      <button class="tab-btn" data-tab="tab-react">REACT / NEXT.JS</button>
+      <button class="tab-btn" data-tab="tab-vue">VUE / VITE</button>
+      <button class="tab-btn" data-tab="tab-cdn">HTML / CDN</button>
+    </div>
+
+    <!-- Tab 1: Bun -->
+    <div id="tab-bun" class="tab-pane">
+      <div class="code-container">
+        <span class="copy-badge" onclick="copyCode(this)">COPY</span>
+<pre><code># Install with Bun
+bun add ngarsa-widget
+
+# Use in your TypeScript/JavaScript project:
+import { createNgarsaWidget } from "ngarsa-widget";
+
+const widget = createNgarsaWidget({
+  phoneNumber: "6281234567890",
+  copy: {
+    name: "Customer Support",
+    welcomeText: "Hi there! How can we help?"
+  },
+  theme: {
+    primaryColor: "#01472e"
+  }
+});</code></pre>
+      </div>
+    </div>
+
+    <!-- Tab 2: npm -->
+    <div id="tab-npm" class="tab-pane" style="display: none;">
+      <div class="code-container">
+        <span class="copy-badge" onclick="copyCode(this)">COPY</span>
+<pre><code># Install with npm
+npm install ngarsa-widget
+
+# Or pnpm / yarn
+pnpm add ngarsa-widget
+# yarn add ngarsa-widget</code></pre>
+      </div>
+    </div>
+
+    <!-- Tab 3: React / Next.js -->
+    <div id="tab-react" class="tab-pane" style="display: none;">
+      <div class="code-container">
+        <span class="copy-badge" onclick="copyCode(this)">COPY</span>
+<pre><code>// components/WhatsAppButton.tsx
+"use client";
+
+import { useEffect } from "react";
+import { createNgarsaWidget } from "ngarsa-widget";
+
+export default function WhatsAppButton() {
+  useEffect(() => {
+    const widget = createNgarsaWidget({
+      phoneNumber: "6281234567890",
+      copy: {
+        name: "Support Desk",
+        welcomeText: "How can our engineers help you today?"
+      },
+      theme: {
+        primaryColor: "#01472e"
+      }
+    });
+
+    return () => widget.destroy();
+  }, []);
+
+  return null;
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- Tab 4: Vue / Vite -->
+    <div id="tab-vue" class="tab-pane" style="display: none;">
+      <div class="code-container">
+        <span class="copy-badge" onclick="copyCode(this)">COPY</span>
+<pre><code>&lt;script setup&gt;
+import { onMounted, onUnmounted } from "vue";
+import { createNgarsaWidget } from "ngarsa-widget";
+
+let widget = null;
+
+onMounted(() =&gt; {
+  widget = createNgarsaWidget({
+    phoneNumber: "6281234567890",
+    theme: { primaryColor: "#01472e" }
+  });
+});
+
+onUnmounted(() =&gt; {
+  if (widget) widget.destroy();
+});
+&lt;/script&gt;</code></pre>
+      </div>
+    </div>
+
+    <!-- Tab 5: CDN -->
+    <div id="tab-cdn" class="tab-pane" style="display: none;">
+      <div class="code-container">
+        <span class="copy-badge" onclick="copyCode(this)">COPY</span>
+<pre><code>&lt;!-- Include script before &lt;/body&gt; --&gt;
+&lt;script src="https://unpkg.com/ngarsa-widget/dist/index.global.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  NgarsaWidget.createNgarsaWidget({
+    phoneNumber: "6281234567890",
+    copy: {
+      name: "Ngarsa Official",
+      welcomeText: "Hi there! How can we help you?"
+    }
+  });
+&lt;/script&gt;</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section-container" id="features">
+    <div class="section-label">BUILT FOR PRODUCTION</div>
+    <h2 class="section-title">WHY NGARSA</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+      <div style="background: #ffffff; border-radius: 2.5rem; padding: 40px; box-shadow: var(--shadow-forest);">
+        <div class="section-label">01 / LEAN ARCHITECTURE</div>
+        <h3 style="font-family: var(--font-display); font-size: 28px; text-transform: uppercase; margin: 12px 0 16px;">
+          13 KB Minified
+        </h3>
+        <p style="font-size: 14px; line-height: 1.6; color: #335346;">
+          Eliminated over 1.1 MB of legacy font files, font-awesome sets, and heavy images in favor of crisp inline SVGs.
+        </p>
+      </div>
+
+      <div style="background: #ffffff; border-radius: 2.5rem; padding: 40px; box-shadow: var(--shadow-forest);">
+        <div class="section-label">02 / HUMAN ACCESSIBILITY</div>
+        <h3 style="font-family: var(--font-display); font-size: 28px; text-transform: uppercase; margin: 12px 0 16px;">
+          WCAG AA Standards
+        </h3>
+        <p style="font-size: 14px; line-height: 1.6; color: #335346;">
+          Reachable via Tab keys, closable with Escape, and equipped with accessible ARIA labels for screen readers.
+        </p>
+      </div>
+
+      <div style="background: #ffffff; border-radius: 2.5rem; padding: 40px; box-shadow: var(--shadow-forest);">
+        <div class="section-label">03 / UNIVERSAL RUNTIMES</div>
+        <h3 style="font-family: var(--font-display); font-size: 28px; text-transform: uppercase; margin: 12px 0 16px;">
+          Bun, Node, CDN
+        </h3>
+        <p style="font-size: 14px; line-height: 1.6; color: #335346;">
+          Dual ESM/CJS exports with TypeScript typings, plus an IIFE bundle for static HTML, WordPress, and Shopify.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Creators Section -->
+  <section class="section-container" id="creators">
+    <div class="section-label">THE MINDS BEHIND THE CODE</div>
+    <h2 class="section-title">CREATORS</h2>
+
+    <div class="creators-grid">
+      <!-- Creator 1: Ngarsa -->
+      <div class="creator-card">
+        <div>
+          <div class="creator-role">ORGANIZATION & STUDIO</div>
+          <h3 class="creator-name">NGARSA</h3>
+          <p class="creator-bio">
+            Ngarsa is a digital engineering and craft studio delivering high-performance open-source tools, modern web interfaces, and bespoke cloud solutions.
+          </p>
+        </div>
+        <div>
+          <a href="https://ngarsa.com/" target="_blank" rel="noopener noreferrer" class="creator-link">
+            VISIT NGARSA.COM →
+          </a>
+        </div>
+      </div>
+
+      <!-- Creator 2: Risyandi -->
+      <div class="creator-card">
+        <div>
+          <div class="creator-role">ENGINEERING & DESIGN</div>
+          <h3 class="creator-name">RISYANDI</h3>
+          <p class="creator-bio">
+            Software architect and creative technologist specializing in performant frontend libraries, developer tooling, and modern distributed systems.
+          </p>
+        </div>
+        <div>
+          <a href="https://risyandi.com/" target="_blank" rel="noopener noreferrer" class="creator-link">
+            VISIT RISYANDI.COM →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="footer-grid">
+      <div class="footer-col-left">
+        <div class="newsletter-title">CONNECT WITH NGARSA</div>
+        <p style="font-size: 14px; line-height: 1.6; max-width: 440px; opacity: 0.85;">
+          Stay updated on releases, developer utilities, and modern open-source toolkits.
+        </p>
+        <div class="newsletter-input-wrap">
+          <input type="email" placeholder="YOUR EMAIL ADDRESS" class="newsletter-input" />
+        </div>
+      </div>
+
+      <div class="footer-col-right">
+        <div>
+          <div class="footer-nav-title">LIBRARY</div>
+          <ul class="footer-nav-list">
+            <li><a href="#quickstart" class="footer-nav-link">QUICKSTART</a></li>
+            <li><a href="#playground" class="footer-nav-link">PLAYGROUND</a></li>
+            <li><a href="https://www.npmjs.com/package/ngarsa-widget" target="_blank" class="footer-nav-link">NPM REGISTRY</a></li>
+            <li><a href="https://github.com/ngarsa-digital/ngarsa-widget" target="_blank" class="footer-nav-link">GITHUB REPO</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-nav-title">ECOSYSTEM</div>
+          <ul class="footer-nav-list">
+            <li><a href="https://ngarsa.com/" target="_blank" class="footer-nav-link">NGARSA DIGITAL</a></li>
+            <li><a href="https://risyandi.com/" target="_blank" class="footer-nav-link">RISYANDI PORTFOLIO</a></li>
+            <li><a href="https://github.com/ngarsa-digital" target="_blank" class="footer-nav-link">OPEN SOURCE</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 NGARSA. ALL RIGHTS RESERVED.</div>
+      <div>MIT LICENSED · CRAFTED WITH PRIDE</div>
+    </div>
+  </footer>
+
+  <!-- Compiled Widget Bundle Script -->
+  <script src="./ngarsa-widget.js"></script>
+
+  <!-- Demo Interactive Controller -->
+  <script>
+    // Initialize Widget with Forest & Sage Theme and WhatsApp Doodle Pattern
+    const widget = NgarsaWidget.createNgarsaWidget({
+      phoneNumber: "6281234567890",
+      copy: {
+        name: "Ngarsa Concierge",
+        statusText: "Typically replies in minutes",
+        welcomeText: "Welcome to Ngarsa! How can we assist your business today?",
+        inputPlaceholder: "Type your inquiry..."
+      },
+      theme: {
+        primaryColor: "#01472e",
+        bubbleColor: "#ffffff",
+        bubbleIconColor: "#01472e",
+        position: "bottom-right"
+      },
+      assets: {
+        backgroundPatternUrl: "./whatsapp-back.png"
+      }
+    });
+
+    // Control bindings
+    const cfgName = document.getElementById("cfg-name");
+    const cfgStatus = document.getElementById("cfg-status");
+    const cfgWelcome = document.getElementById("cfg-welcome");
+    const cfgColor = document.getElementById("cfg-color");
+    const cfgColorHex = document.getElementById("cfg-color-hex");
+    const cfgPosition = document.getElementById("cfg-position");
+    const cfgAvatarMode = document.getElementById("cfg-avatar-mode");
+    const groupCustomAvatar = document.getElementById("group-custom-avatar");
+    const cfgAvatarUrl = document.getElementById("cfg-avatar-url");
+    const cfgBubbleMode = document.getElementById("cfg-bubble-mode");
+    const cfgBgPattern = document.getElementById("cfg-bg-pattern");
+
+    const btnApply = document.getElementById("btn-apply-custom");
+    const btnToggle = document.getElementById("btn-toggle-widget");
+
+    const avatarLivePreview = document.getElementById("avatar-live-preview");
+    const avatarLiveName = document.getElementById("avatar-live-name");
+    const avatarLiveInitials = document.getElementById("avatar-live-initials");
+
+    function syncAvatarPreview() {
+      const name = cfgName.value.trim() || "Ngarsa Concierge";
+      const primaryColor = cfgColorHex.value.trim() || "#01472e";
+      const avatarMode = cfgAvatarMode.value;
+
+      if (avatarMode === "hidden") {
+        if (avatarLivePreview) avatarLivePreview.style.display = "none";
+        if (avatarLiveName) avatarLiveName.textContent = name;
+        if (avatarLiveInitials) avatarLiveInitials.textContent = "Avatar: Hidden";
+        return;
+      }
+
+      if (avatarLivePreview) avatarLivePreview.style.display = "block";
+      if (avatarLiveName) avatarLiveName.textContent = name;
+
+      if (avatarMode === "custom") {
+        const customUrl = cfgAvatarUrl.value.trim() || "";
+        if (avatarLivePreview) avatarLivePreview.src = customUrl;
+        if (avatarLiveInitials) avatarLiveInitials.textContent = "Mode: Custom Image URL";
+      } else {
+        const generated = NgarsaWidget.generateAvatar(name, primaryColor, "#fefae0");
+        if (avatarLivePreview) avatarLivePreview.src = generated;
+        const words = name.split(/\s+/).filter(Boolean);
+        const initials = words.length >= 2 ? (words[0][0] + words[1][0]).toUpperCase() : (name[0] || "N").toUpperCase();
+        if (avatarLiveInitials) avatarLiveInitials.textContent = `Generated Initials: ${initials} · Zero External Lag`;
+      }
+    }
+
+    // Initial preview setup & real-time input syncing
+    syncAvatarPreview();
+    cfgName.addEventListener("input", syncAvatarPreview);
+    cfgAvatarUrl.addEventListener("input", syncAvatarPreview);
+
+    // Sync color swatch & hex input
+    cfgColor.addEventListener("input", (e) => {
+      cfgColorHex.value = e.target.value;
+      syncAvatarPreview();
+    });
+    cfgColorHex.addEventListener("input", (e) => {
+      cfgColor.value = e.target.value;
+      syncAvatarPreview();
+    });
+
+    cfgAvatarMode.addEventListener("change", (e) => {
+      groupCustomAvatar.style.display = e.target.value === "custom" ? "block" : "none";
+      syncAvatarPreview();
+    });
+
+    btnApply.addEventListener("click", () => {
+      syncAvatarPreview();
+      const name = cfgName.value.trim() || "Ngarsa Concierge";
+      const primaryColor = cfgColorHex.value.trim() || "#01472e";
+      const avatarMode = cfgAvatarMode.value;
+      const bubbleMode = cfgBubbleMode.value;
+
+      let avatarUrl = "";
+      let hideAvatar = false;
+
+      if (avatarMode === "hidden") {
+        hideAvatar = true;
+      } else if (avatarMode === "custom") {
+        avatarUrl = cfgAvatarUrl.value.trim() || "";
+      } else {
+        // Dynamic generator mode
+        avatarUrl = NgarsaWidget.generateAvatar(name, primaryColor, "#fefae0");
+      }
+
+      let bubbleIconUrl = "";
+      if (bubbleMode === "avatar") {
+        bubbleIconUrl = avatarUrl || NgarsaWidget.generateAvatar(name, primaryColor, "#fefae0");
+      }
+
+      let bgPatternUrl = "./whatsapp-back.png";
+      let hideBgPattern = false;
+      const patternMode = cfgBgPattern.value;
+      if (patternMode === "none") {
+        hideBgPattern = true;
+        bgPatternUrl = "";
+      } else if (patternMode === "minimal") {
+        bgPatternUrl = NgarsaWidget.DEFAULT_PATTERN_DATA_URI;
+      } else {
+        bgPatternUrl = "./whatsapp-back.png";
+      }
+
+      widget.updateOptions({
+        copy: {
+          name: name,
+          statusText: cfgStatus.value.trim() || "Typically replies in minutes",
+          welcomeText: cfgWelcome.value.trim() || "How can we help?"
+        },
+        theme: {
+          primaryColor: primaryColor,
+          bubbleIconColor: primaryColor,
+          position: cfgPosition.value
+        },
+        assets: {
+          avatarUrl: avatarUrl,
+          hideAvatar: hideAvatar,
+          bubbleIconUrl: bubbleIconUrl,
+          backgroundPatternUrl: bgPatternUrl,
+          hideBackgroundPattern: hideBgPattern
+        }
+      });
+      widget.open();
+    });
+
+    btnToggle.addEventListener("click", () => {
+      widget.toggle();
+      const el = widget.getElement();
+      if (el) {
+        // Bring into view smoothly if user is at the playground section
+        el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+
+    // Code Tabs switching
+    const tabs = document.querySelectorAll(".tab-btn");
+    const panes = document.querySelectorAll(".tab-pane");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.classList.remove("active"));
+        panes.forEach((p) => (p.style.display = "none"));
+
+        tab.classList.add("active");
+        const targetId = tab.dataset.tab;
+        const targetPane = document.getElementById(targetId);
+        if (targetPane) targetPane.style.display = "block";
+      });
+    });
+
+    function copyCode(btn) {
+      const code = btn.nextElementSibling.innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        const original = btn.innerText;
+        btn.innerText = "COPIED!";
+        setTimeout(() => (btn.innerText = original), 2000);
+      });
+    }
+  </script>
+</body>
+</html>
