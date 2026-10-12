@@ -167,8 +167,10 @@ describe("NgarsaWidget", () => {
     const avatarImg = el?.querySelector(".ngarsa-avatar-img") as HTMLImageElement;
     expect(avatarImg).not.toBeNull();
     expect(avatarImg.src).toContain("data:image/svg+xml");
-    // Should have initials JD in SVG data URI
-    expect(decodeURIComponent(avatarImg.src)).toContain("JD");
+    const rawSvg = avatarImg.src.includes(";base64,")
+      ? atob(avatarImg.src.split(";base64,")[1])
+      : decodeURIComponent(avatarImg.src);
+    expect(rawSvg).toContain("JD");
 
     // Update with custom avatar URL
     widget.updateOptions({
