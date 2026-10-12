@@ -34,7 +34,8 @@
     "floating-button",
     "typescript"
   ],
-  "author": "Ngarsa",
+  "author": "Ngarsa <hello@ngarsa.com> (https://risyandi.com)",
+  "homepage": "https://ngarsa.com",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.13.0",
