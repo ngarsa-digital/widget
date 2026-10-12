@@ -1,108 +1,183 @@
 # ngarsa-widget
 
-A repository of lightweight, drop-in widgets created by [Ngarsa](https://github.com/ngarsa-digital).
+A lightweight, zero-dependency, customizable floating WhatsApp chat widget for websites and web applications. Written in TypeScript and published for Bun, npm, yarn, pnpm, and browser script tags.
 
-## Widgets
-
-| Widget | Description | Status |
-|--------|-------------|--------|
-| whatsapp-widget | Floating WhatsApp deep-link button for any website | ✅ Stable |
+[![npm version](https://img.shields.io/npm/v/ngarsa-widget.svg)](https://www.npmjs.com/package/ngarsa-widget)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
 
-## whatsapp-widget
+## Highlights
 
-A self-contained, zero-dependency floating WhatsApp chat button that overlays on any page. Clicking it opens a prefilled WhatsApp conversation with a configurable phone number.
+- ⚡ **Ultra-lightweight** (~13 KB minified bundle, 0 external dependencies)
+- 🎨 **Easy customization** for colors, branding, copy, assets, and positioning
+- 🔒 **Accessible** with full keyboard navigation (Escape to close, Enter to send) and ARIA attributes
+- 📦 **Multi-format support**: ESM (`import`), CommonJS (`require`), TypeScript types (`.d.ts`), and browser IIFE (`<script>`)
 
-### Features
+---
 
-- 💬 **One-click WhatsApp contact** — opens `wa.me/<number>` with an optional prefilled message
-- 🪟 **Slide-in panel** — mimics the native WhatsApp chat look (header, message bubble, input, send)
-- 📱 **Responsive** — adapts to mobile widths (≤ 375 px)
-- 🎨 **No build step** — pure HTML/CSS/JS, drop the folder anywhere and embed a `<script>`
-- ⚡ **Lean footprint** — ~50 KB of code (the rest is the avatar image and one webfont for the close icon)
+## Installation
 
-### Quick start
+### Using Bun
+```bash
+bun add ngarsa-widget
+```
 
-**1. Clone or copy the `widget/` folder into your project.**
+### Using npm
+```bash
+npm install ngarsa-widget
+```
 
-**2. Configure your WhatsApp number.** Pass the phone number as a URL parameter on the iframe `src`. The widget reads these query-string parameters:
+### Using pnpm / yarn
+```bash
+pnpm add ngarsa-widget
+# or
+yarn add ngarsa-widget
+```
 
-| Parameter           | Default           | Description                                            |
-|---------------------|-------------------|--------------------------------------------------------|
-| `phone_number`      | `62810000000`     | WhatsApp number (international, no `+`, no leading `0`) |
-| `whatsapp_name`     | `Ngarsa Official` | Display name shown in the chat header                   |
-| `whatsapp_text`     | *(empty)*         | Overrides the welcome message text inside the bubble    |
+---
+
+## Usage
+
+### 1. Modern Frameworks / Bundlers (React, Vue, Next.js, Vite, Astro, Svelte)
+
+```typescript
+import { createNgarsaWidget } from "ngarsa-widget";
+
+const widget = createNgarsaWidget({
+  phoneNumber: "628123456789", // International format without '+'
+  copy: {
+    name: "Customer Support",
+    statusText: "Typically replies within a few minutes",
+    welcomeText: "Hello! How can our team help you today?",
+    inputPlaceholder: "Write a message...",
+  },
+  theme: {
+    primaryColor: "#095e54",
+    position: "bottom-right",
+  },
+});
+
+// Programmatic controls:
+// widget.open();
+// widget.close();
+// widget.toggle();
+// widget.destroy();
+```
+
+### 2. Plain HTML / CDN Script Tag
 
 ```html
-<iframe src="https://widget.ngarsa.com/?phone_number=628123456789&whatsapp_name=My+Business&whatsapp_text=Hello%21"
-        style="position: fixed; bottom: 20px; right: 20px; border: none; height: 100%; width: 100%; z-index: 9999;" aria-hidden="true"></iframe>
+<script src="https://unpkg.com/ngarsa-widget/dist/index.global.js"></script>
+<script>
+  const widget = NgarsaWidget.createNgarsaWidget({
+    phoneNumber: "628123456789",
+    copy: {
+      name: "Ngarsa Official",
+      welcomeText: "Hi there 👋, how can we help you?"
+    }
+  });
+</script>
 ```
 
-> 💡 When `whatsapp_name` is supplied, the avatar image in the header is hidden to keep the header clean — useful if you want a text-only header.
-
-**3. Embed it.** Add this to your page (just before `</body>`):
-
+Or automatic initialization via script attributes:
 ```html
-<!-- Ngarsa WhatsApp widget -->
-<script src="https://widget.ngarsa.com/" defer></script>
+<script
+  src="https://unpkg.com/ngarsa-widget/dist/index.global.js"
+  data-phone="628123456789"
+  data-name="My Business"
+  data-text="Hi there! Need help?"
+  data-color="#095e54"
+  defer
+></script>
 ```
 
-> ⚠️ Because the widget markup lives inside `index.html`, the easiest embedding is via an `<iframe>`. Note that the widget itself uses `position: fixed`, so the iframe just needs to exist — width/height don't matter:
->
-> ```html
-> <iframe src="https://widget.ngarsa.com/"
->         style="position: fixed; bottom: 20px; right: 20px; border: none; height: 100%; width: 100%; z-index: 9999" aria-hidden="true"></iframe>
-> ```
->
-> For tighter integration (single DOM, no iframe overhead), copy the `<div class="wrapper-floating">…</div>` block from `index.html` directly into your page and load `assets/css/styles.css` + `assets/js/widget.js` alongside it.
+---
 
-### Project structure
+## Configuration API
 
+### `NgarsaWidgetOptions`
+
+| Option | Type | Default | Description |
+|---|---|---|---|
+| `phoneNumber` | `string` | *(Required)* | Target WhatsApp phone number. |
+| `copy` | `NgarsaCopy` | Defaults below | Custom text, headers, and placeholders. |
+| `theme` | `NgarsaTheme` | Defaults below | Custom colors, fonts, z-index, and placement. |
+| `assets` | `NgarsaAssets` | Built-in SVGs | Avatar image and pattern backgrounds. |
+| `defaultOpen` | `boolean` | `false` | Whether to mount in open state. |
+| `onOpen` | `() => void` | `undefined` | Callback when panel opens. |
+| `onClose` | `() => void` | `undefined` | Callback when panel closes. |
+| `onSend` | `(msg: string) => void` | `undefined` | Callback when user triggers send. |
+
+### `NgarsaCopy` (Default Copywriting)
+
+```typescript
+{
+  name: "Ngarsa Official",
+  statusText: "Typically replies within a day",
+  welcomeText: "Hi there 👋, how can we help you?",
+  inputPlaceholder: "Type a message...",
+  sendButtonAriaLabel: "Send message to WhatsApp",
+  closeButtonAriaLabel: "Close WhatsApp chat widget",
+  openButtonAriaLabel: "Open WhatsApp chat"
+}
 ```
-widget/
-├── index.html                              # Widget markup
-└── assets/
-    ├── js/
-    │   └── widget.js                       # Open/close + WhatsApp deep-link
-    ├── css/
-    │   ├── styles.css                      # Widget styles + entrance animation
-    │   └── font-awesome.css                # FontAwesome 4.6.3 (fa-times-circle icon)
-    ├── fonts/                              # OpenSans-Regular + FontAwesome webfonts
-    └── images/
-        ├── favicon.png                     # Header avatar
-        └── whatsapp-back.png               # Chat pattern background
+
+### `NgarsaTheme` (Default Colors & Positioning)
+
+```typescript
+{
+  primaryColor: "#095e54",
+  primaryTextColor: "#ffffff",
+  bubbleColor: "#ffffff",
+  bubbleIconColor: "#4fce5d",
+  onlineBadgeColor: "#4ad504",
+  backgroundColor: "#ffffff",
+  chatBubbleBackground: "#ffffff",
+  chatBubbleTextColor: "#111111",
+  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  zIndex: 999999,
+  position: "bottom-right", // or "bottom-left"
+  offsetBottom: "20px",
+  offsetSide: "20px"
+}
 ```
 
-### Customization
+### `NgarsaAssets`
 
-| Want to change… | Where |
-| ------------------ | ------- |
-| Phone number | iframe `src` → `?phone_number=…` |
-| Header / display name | iframe `src` → `?whatsapp_name=…` |
-| Welcome bubble message | iframe `src` → `?whatsapp_text=…` |
-| Header / avatar | `assets/css/styles.css` → `.floating-fto` `background-image` + `assets/images/favicon.png` |
-| Header color (default teal-green gradient) | `assets/css/styles.css` → `.floating-header-comp` `background` |
-| Bubble color (default WhatsApp green, `#4FCE5D`) | `index.html` → `fill` attribute on the WhatsApp icon `<svg>` |
-| Font | `assets/css/styles.css` → `@font-face` + `font-family` declarations |
-| Entrance animation | `assets/css/styles.css` → `@keyframes fadeInRight` |
+```typescript
+{
+  avatarUrl: "<built-in SVG avatar>",
+  hideAvatar: false,
+  backgroundPatternUrl: "<built-in SVG pattern>",
+  hideBackgroundPattern: false
+}
+```
 
-### Browser support
+---
 
-Modern evergreen browsers (Chrome, Firefox, Edge, Safari). Uses CSS `transform`, `transition`, and `@keyframes` — no transpilation required.
+## Development & Testing
 
-### Roadmap
+```bash
+# Install dependencies
+bun install
 
-- 🤖 **AI chat mode** — *in progress* — optional OpenAI-powered assistant inside the panel, with API key stored in `localStorage` (user-supplied)
-- 🔌 **Provider adapters** — Gemini / Claude support behind the same settings UI
-- 🪶 **Inline SVG icon set** — replace FontAwesome webfont with inline SVGs to drop ~765 KB
+# Run the interactive demo page
+bun run demo
+# Then visit: http://localhost:3000
+
+# Run unit tests
+bun run test
+
+# Type check
+bun run typecheck
+
+# Build library bundles
+bun run build
+```
 
 ---
 
 ## License
 
-MIT — see individual widget folders for any additional notices.
-
-## Contributing
-
-Issues and PRs welcome. Keep widgets dependency-free and zero-build.
+MIT © [Ngarsa](https://github.com/ngarsa-digital)
