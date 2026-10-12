@@ -1,3 +1,11 @@
+/**
+ * ngarsa-widget - Core Widget Implementation
+ *
+ * @author Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * @contact hello@ngarsa.com
+ * @license MIT
+ */
+
 import {
   NgarsaWidgetInstance,
   NgarsaWidgetOptions,
@@ -228,6 +236,18 @@ export function createNgarsaWidget(
     }
     if (avatarContainer) {
       avatarContainer.style.display = updatedAssets.hideAvatar ? "none" : "";
+    }
+
+    // Refresh background pattern
+    const bodyBg = root.querySelector(".ngarsa-body-bg") as HTMLElement | null;
+    if (bodyBg) {
+      if (!updatedAssets.hideBackgroundPattern && updatedAssets.backgroundPatternUrl) {
+        bodyBg.style.backgroundImage = `url('${updatedAssets.backgroundPatternUrl}')`;
+        bodyBg.style.display = "";
+      } else {
+        bodyBg.style.backgroundImage = "none";
+        bodyBg.style.display = "none";
+      }
     }
 
     // Refresh bubble icon

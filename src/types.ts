@@ -1,3 +1,11 @@
+/**
+ * ngarsa-widget - Type Definitions
+ *
+ * @author Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * @contact hello@ngarsa.com
+ * @license MIT
+ */
+
 export interface NgarsaTheme {
   primaryColor?: string;
   primaryTextColor?: string;

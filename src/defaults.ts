@@ -1,3 +1,11 @@
+/**
+ * ngarsa-widget - Default Configurations
+ *
+ * @author Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * @contact hello@ngarsa.com
+ * @license MIT
+ */
+
 import { NgarsaAssets, NgarsaCopy, NgarsaTheme } from "./types";
 import { DEFAULT_AVATAR_DATA_URI, DEFAULT_PATTERN_DATA_URI } from "./icons";
 

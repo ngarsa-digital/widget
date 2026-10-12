@@ -1,6 +1,10 @@
 /**
+ * ngarsa-widget - Dynamic SVG Avatar Generator
  * Generates an accessible, lightweight SVG Data URI avatar based on a name or brand.
- * Uses high-contrast initials and a solid background color.
+ *
+ * @author Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * @contact hello@ngarsa.com
+ * @license MIT
  */
 export function generateAvatar(
   name: string = "Ngarsa",

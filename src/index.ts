@@ -1,3 +1,12 @@
+/**
+ * ngarsa-widget
+ * A lightweight, zero-dependency WhatsApp chat widget.
+ *
+ * @author Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * @contact hello@ngarsa.com
+ * @license MIT
+ */
+
 import { createNgarsaWidget, init } from "./widget";
 export * from "./types";
 export * from "./defaults";

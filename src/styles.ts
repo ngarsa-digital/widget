@@ -1,3 +1,11 @@
+/**
+ * ngarsa-widget - Style Sheet Generator
+ *
+ * @author Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * @contact hello@ngarsa.com
+ * @license MIT
+ */
+
 import { NgarsaTheme } from "./types";
 
 export function generateStyles(theme: Required<NgarsaTheme>, id: string): string {
@@ -194,14 +202,17 @@ export function generateStyles(theme: Required<NgarsaTheme>, id: string): string
   padding: 20px 16px;
   min-height: 180px;
   position: relative;
+  overflow: hidden;
 }
 
 #${id} .ngarsa-body-bg {
   position: absolute;
   inset: 0;
-  opacity: 0.08;
+  opacity: 0.12;
   pointer-events: none;
   background-repeat: repeat;
+  background-size: 320px auto;
+  background-position: center;
 }
 
 #${id} .ngarsa-bubble-msg {
