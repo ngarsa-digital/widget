@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!--
+  ngarsa-widget - Interactive Showcase & Playground
+  Created by Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+  Contact: hello@ngarsa.com
+  License: MIT
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -126,6 +132,15 @@
           <select id="cfg-bubble-mode" class="field-select">
             <option value="whatsapp" selected>DEFAULT WHATSAPP VECTOR ICON</option>
             <option value="avatar">SYNC WITH AGENT AVATAR / LOGO</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="cfg-bg-pattern">CHAT BODY BACKGROUND (WHATSAPP PATTERN)</label>
+          <select id="cfg-bg-pattern" class="field-select">
+            <option value="whatsapp" selected>WHATSAPP DOODLE PATTERN (assets/images/whatsapp-back.png)</option>
+            <option value="minimal">MINIMAL VECTOR SVG PATTERN</option>
+            <option value="none">PLAIN SOLID BACKGROUND</option>
           </select>
         </div>
 
@@ -418,7 +433,7 @@ onUnmounted(() =&gt; {
 
   <!-- Demo Interactive Controller -->
   <script>
-    // Initialize Widget with Forest & Sage Theme
+    // Initialize Widget with Forest & Sage Theme and WhatsApp Doodle Pattern
     const widget = NgarsaWidget.createNgarsaWidget({
       phoneNumber: "6281234567890",
       copy: {
@@ -432,6 +447,9 @@ onUnmounted(() =&gt; {
         bubbleColor: "#ffffff",
         bubbleIconColor: "#01472e",
         position: "bottom-right"
+      },
+      assets: {
+        backgroundPatternUrl: "./whatsapp-back.png"
       }
     });
 
@@ -446,6 +464,7 @@ onUnmounted(() =&gt; {
     const groupCustomAvatar = document.getElementById("group-custom-avatar");
     const cfgAvatarUrl = document.getElementById("cfg-avatar-url");
     const cfgBubbleMode = document.getElementById("cfg-bubble-mode");
+    const cfgBgPattern = document.getElementById("cfg-bg-pattern");
 
     const btnApply = document.getElementById("btn-apply-custom");
     const btnToggle = document.getElementById("btn-toggle-widget");
@@ -526,6 +545,18 @@ onUnmounted(() =&gt; {
         bubbleIconUrl = avatarUrl || NgarsaWidget.generateAvatar(name, primaryColor, "#fefae0");
       }
 
+      let bgPatternUrl = "./whatsapp-back.png";
+      let hideBgPattern = false;
+      const patternMode = cfgBgPattern.value;
+      if (patternMode === "none") {
+        hideBgPattern = true;
+        bgPatternUrl = "";
+      } else if (patternMode === "minimal") {
+        bgPatternUrl = NgarsaWidget.DEFAULT_PATTERN_DATA_URI;
+      } else {
+        bgPatternUrl = "./whatsapp-back.png";
+      }
+
       widget.updateOptions({
         copy: {
           name: name,
@@ -540,7 +571,9 @@ onUnmounted(() =&gt; {
         assets: {
           avatarUrl: avatarUrl,
           hideAvatar: hideAvatar,
-          bubbleIconUrl: bubbleIconUrl
+          bubbleIconUrl: bubbleIconUrl,
+          backgroundPatternUrl: bgPatternUrl,
+          hideBackgroundPattern: hideBgPattern
         }
       });
       widget.open();

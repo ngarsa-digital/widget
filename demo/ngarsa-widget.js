@@ -1,29 +1,29 @@
-var NgarsaWidget=(function(exports){'use strict';var y=`<svg viewBox="0 0 90 90" fill="currentColor" width="32" height="32" aria-hidden="true" focusable="false">
+var NgarsaWidget=(function(exports){'use strict';var $=`<svg viewBox="0 0 90 90" fill="currentColor" width="32" height="32" aria-hidden="true" focusable="false">
   <path d="M90,43.841c0,24.213-19.779,43.841-44.182,43.841c-7.747,0-15.025-1.98-21.357-5.455L0,90l7.975-23.522 c-4.023-6.606-6.34-14.354-6.34-22.637C1.635,19.628,21.416,0,45.818,0C70.223,0,90,19.628,90,43.841z M45.818,6.982 c-20.484,0-37.146,16.535-37.146,36.859c0,8.065,2.629,15.534,7.076,21.61L11.107,79.14l14.275-4.537 c5.865,3.851,12.891,6.097,20.437,6.097c20.481,0,37.146-16.533,37.146-36.857S66.301,6.982,45.818,6.982z M68.129,53.938 c-0.273-0.447-0.994-0.717-2.076-1.254c-1.084-0.537-6.41-3.138-7.4-3.495c-0.993-0.358-1.717-0.538-2.438,0.537 c-0.721,1.076-2.797,3.495-3.43,4.212c-0.632,0.719-1.263,0.809-2.347,0.271c-1.082-0.537-4.571-1.673-8.708-5.333 c-3.219-2.848-5.393-6.364-6.025-7.441c-0.631-1.075-0.066-1.656,0.475-2.191c0.488-0.482,1.084-1.255,1.625-1.882 c0.543-0.628,0.723-1.075,1.082-1.793c0.363-0.717,0.182-1.344-0.09-1.883c-0.27-0.537-2.438-5.825-3.34-7.977 c-0.902-2.15-1.803-1.792-2.436-1.792c-0.631,0-1.354-0.09-2.076-0.09c-0.722,0-1.896,0.269-2.889,1.344 c-0.992,1.076-3.789,3.676-3.789,8.963c0,5.288,3.879,10.397,4.422,11.113c0.541,0.716,7.49,11.92,18.5,16.223 C58.2,65.771,58.2,64.336,60.186,64.156c1.984-0.179,6.406-2.599,7.312-5.107C68.398,56.537,68.398,54.386,68.129,53.938z" />
-</svg>`,M=`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+</svg>`,P=`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <circle cx="12" cy="12" r="10"></circle>
   <line x1="15" y1="9" x2="9" y2="15"></line>
   <line x1="9" y1="9" x2="15" y2="15"></line>
-</svg>`,z=`<svg viewBox="0 0 20 18" width="20" height="18" fill="currentColor" aria-hidden="true" focusable="false">
+</svg>`,M=`<svg viewBox="0 0 20 18" width="20" height="18" fill="currentColor" aria-hidden="true" focusable="false">
   <path d="M0 0 L0 7.813 L16 9 L0 10.188 L0 18 L20 9 L0 0 Z"></path>
-</svg>`;var H='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" opacity="0.06"><path d="M10 10h10v10H10zM40 30h10v10H40zM20 40h10v10H20z" fill="%23000"/></svg>';var $={primaryColor:"#095e54",primaryTextColor:"#ffffff",bubbleColor:"#ffffff",bubbleIconColor:"#4fce5d",onlineBadgeColor:"#4ad504",backgroundColor:"#ffffff",chatBubbleBackground:"#ffffff",chatBubbleTextColor:"#111111",fontFamily:'-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',zIndex:999999,position:"bottom-right",offsetBottom:"20px",offsetSide:"20px"},w={name:"Ngarsa Official",statusText:"Typically replies within a day",welcomeText:"Hi there \u{1F44B}, how can we help you?",inputPlaceholder:"Type a message...",sendButtonAriaLabel:"Send message to WhatsApp",closeButtonAriaLabel:"Close WhatsApp chat widget",openButtonAriaLabel:"Open WhatsApp chat"},A={avatarUrl:"",hideAvatar:false,bubbleIconUrl:"",backgroundPatternUrl:H,hideBackgroundPattern:false};function T(a,e){let t=a.position==="bottom-left";return `
+</svg>`;var z='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" opacity="0.06"><path d="M10 10h10v10H10zM40 30h10v10H40zM20 40h10v10H20z" fill="%23000"/></svg>';var w={primaryColor:"#095e54",primaryTextColor:"#ffffff",bubbleColor:"#ffffff",bubbleIconColor:"#4fce5d",onlineBadgeColor:"#4ad504",backgroundColor:"#ffffff",chatBubbleBackground:"#ffffff",chatBubbleTextColor:"#111111",fontFamily:'-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',zIndex:999999,position:"bottom-right",offsetBottom:"20px",offsetSide:"20px"},T={name:"Ngarsa Official",statusText:"Typically replies within a day",welcomeText:"Hi there \u{1F44B}, how can we help you?",inputPlaceholder:"Type a message...",sendButtonAriaLabel:"Send message to WhatsApp",closeButtonAriaLabel:"Close WhatsApp chat widget",openButtonAriaLabel:"Open WhatsApp chat"},A={avatarUrl:"",hideAvatar:false,bubbleIconUrl:"",backgroundPatternUrl:z,hideBackgroundPattern:false};function C(t,e){let a=t.position==="bottom-left";return `
 #${e} {
-  --ngarsa-primary: ${a.primaryColor};
-  --ngarsa-primary-text: ${a.primaryTextColor};
-  --ngarsa-bubble-bg: ${a.bubbleColor};
-  --ngarsa-bubble-icon: ${a.bubbleIconColor};
-  --ngarsa-online-badge: ${a.onlineBadgeColor};
-  --ngarsa-bg: ${a.backgroundColor};
-  --ngarsa-chat-bg: ${a.chatBubbleBackground};
-  --ngarsa-chat-text: ${a.chatBubbleTextColor};
-  --ngarsa-font: ${a.fontFamily};
-  --ngarsa-zindex: ${a.zIndex};
-  --ngarsa-offset-bottom: ${a.offsetBottom};
-  --ngarsa-offset-side: ${a.offsetSide};
+  --ngarsa-primary: ${t.primaryColor};
+  --ngarsa-primary-text: ${t.primaryTextColor};
+  --ngarsa-bubble-bg: ${t.bubbleColor};
+  --ngarsa-bubble-icon: ${t.bubbleIconColor};
+  --ngarsa-online-badge: ${t.onlineBadgeColor};
+  --ngarsa-bg: ${t.backgroundColor};
+  --ngarsa-chat-bg: ${t.chatBubbleBackground};
+  --ngarsa-chat-text: ${t.chatBubbleTextColor};
+  --ngarsa-font: ${t.fontFamily};
+  --ngarsa-zindex: ${t.zIndex};
+  --ngarsa-offset-bottom: ${t.offsetBottom};
+  --ngarsa-offset-side: ${t.offsetSide};
 
   position: fixed;
   bottom: var(--ngarsa-offset-bottom);
-  ${t?"left: var(--ngarsa-offset-side); right: auto;":"right: var(--ngarsa-offset-side); left: auto;"}
+  ${a?"left: var(--ngarsa-offset-side); right: auto;":"right: var(--ngarsa-offset-side); left: auto;"}
   z-index: var(--ngarsa-zindex);
   font-family: var(--ngarsa-font);
   line-height: 1.4;
@@ -92,8 +92,8 @@ var NgarsaWidget=(function(exports){'use strict';var y=`<svg viewBox="0 0 90 90"
   overflow: hidden;
   position: absolute;
   bottom: 74px;
-  ${t?"left: 0;":"right: 0;"}
-  transform-origin: ${t?"bottom left":"bottom right"};
+  ${a?"left: 0;":"right: 0;"}
+  transform-origin: ${a?"bottom left":"bottom right"};
   animation: ngarsa-fade-in 0.25s ease-out forwards;
 }
 
@@ -197,14 +197,17 @@ var NgarsaWidget=(function(exports){'use strict';var y=`<svg viewBox="0 0 90 90"
   padding: 20px 16px;
   min-height: 180px;
   position: relative;
+  overflow: hidden;
 }
 
 #${e} .ngarsa-body-bg {
   position: absolute;
   inset: 0;
-  opacity: 0.08;
+  opacity: 0.12;
   pointer-events: none;
   background-repeat: repeat;
+  background-size: 320px auto;
+  background-position: center;
 }
 
 #${e} .ngarsa-bubble-msg {
@@ -301,53 +304,103 @@ var NgarsaWidget=(function(exports){'use strict';var y=`<svg viewBox="0 0 90 90"
 @media (max-width: 480px) {
   #${e} .ngarsa-panel {
     width: calc(100vw - 32px);
-    ${t?"left: 0;":"right: 0;"}
+    ${a?"left: 0;":"right: 0;"}
   }
 }
-`}function C(a="Ngarsa",e="#01472e",t="#fefae0"){let r=(a||"").trim().split(/\s+/).filter(Boolean),i="N";r.length>=2?i=(r[0][0]+r[1][0]).toUpperCase():r.length===1&&r[0].length>0&&(i=r[0].substring(0,Math.min(2,r[0].length)).toUpperCase());let m=e.startsWith("#")?e:`#${e}`,n=t.startsWith("#")?t:`#${t}`,g=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="32" fill="${m}"/><text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" fill="${n}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="1">${i}</text></svg>`;return typeof btoa=="function"?`data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(g)))}`:`data:image/svg+xml;utf8,${encodeURIComponent(g)}`}var G=0;function O(a){if(typeof window>"u"||typeof document>"u")return {open:()=>{},close:()=>{},toggle:()=>{},isOpen:()=>false,destroy:()=>{},updateOptions:()=>{},getElement:()=>null};let e=`ngarsa-widget-${++G}`,t={...a},u={...$,...t.theme},r={...w,...t.copy},i={...A,...t.assets},m=()=>i.avatarUrl||C(r.name,u.primaryColor,u.primaryTextColor),n=document.createElement("div");n.id=e,n.setAttribute("role","region"),n.setAttribute("aria-label","WhatsApp Support Widget");let g=document.createElement("style");g.textContent=T(u,e),n.appendChild(g);let D=()=>{let o=new Date,c=o.getHours().toString().padStart(2,"0"),s=o.getMinutes().toString().padStart(2,"0");return `${c}.${s}`},W=`
+`}function E(t="Ngarsa",e="#01472e",a="#fefae0"){let n=(t||"").trim().split(/\s+/).filter(Boolean),i="N";n.length>=2?i=(n[0][0]+n[1][0]).toUpperCase():n.length===1&&n[0].length>0&&(i=n[0].substring(0,Math.min(2,n[0].length)).toUpperCase());let x=e.startsWith("#")?e:`#${e}`,r=a.startsWith("#")?a:`#${a}`,d=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="32" fill="${x}"/><text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" fill="${r}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="1">${i}</text></svg>`;return typeof btoa=="function"?`data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(d)))}`:`data:image/svg+xml;utf8,${encodeURIComponent(d)}`}var K=0;function H(t){if(typeof window>"u"||typeof document>"u")return {open:()=>{},close:()=>{},toggle:()=>{},isOpen:()=>false,destroy:()=>{},updateOptions:()=>{},getElement:()=>null};let e=`ngarsa-widget-${++K}`,a={...t},m={...w,...a.theme},n={...T,...a.copy},i={...A,...a.assets},x=()=>i.avatarUrl||E(n.name,m.primaryColor,m.primaryTextColor),r=document.createElement("div");r.id=e,r.setAttribute("role","region"),r.setAttribute("aria-label","WhatsApp Support Widget");let d=document.createElement("style");d.textContent=C(m,e),r.appendChild(d);let D=()=>{let o=new Date,g=o.getHours().toString().padStart(2,"0"),s=o.getMinutes().toString().padStart(2,"0");return `${g}.${s}`},R=`
     <div class="ngarsa-avatar-container" style="${i.hideAvatar?"display: none;":""}">
-      <img class="ngarsa-avatar-img" src="${m()}" alt="${r.name} Avatar" />
+      <img class="ngarsa-avatar-img" src="${x()}" alt="${n.name} Avatar" />
       <span class="ngarsa-online-dot"></span>
     </div>
-  `,R=i.bubbleIconUrl?`<img class="ngarsa-bubble-img" src="${i.bubbleIconUrl}" alt="${r.name}" />`:y,q=!i.hideBackgroundPattern&&i.backgroundPatternUrl?`style="background-image: url('${i.backgroundPatternUrl}');"`:"";n.insertAdjacentHTML("beforeend",`
-    <div class="ngarsa-panel" role="dialog" aria-modal="true" aria-label="${r.name} Chat Panel">
+  `,q=i.bubbleIconUrl?`<img class="ngarsa-bubble-img" src="${i.bubbleIconUrl}" alt="${n.name}" />`:$,F=!i.hideBackgroundPattern&&i.backgroundPatternUrl?`style="background-image: url('${i.backgroundPatternUrl}');"`:"";r.insertAdjacentHTML("beforeend",`
+    <div class="ngarsa-panel" role="dialog" aria-modal="true" aria-label="${n.name} Chat Panel">
       <div class="ngarsa-header">
-        ${W}
+        ${R}
         <div class="ngarsa-header-meta">
-          <div class="ngarsa-name">${r.name}</div>
-          <div class="ngarsa-status">${r.statusText}</div>
+          <div class="ngarsa-name">${n.name}</div>
+          <div class="ngarsa-status">${n.statusText}</div>
         </div>
-        <button type="button" class="ngarsa-close-btn" aria-label="${r.closeButtonAriaLabel}">
-          ${M}
+        <button type="button" class="ngarsa-close-btn" aria-label="${n.closeButtonAriaLabel}">
+          ${P}
         </button>
       </div>
       <div class="ngarsa-body">
-        <div class="ngarsa-body-bg" ${q}></div>
+        <div class="ngarsa-body-bg" ${F}></div>
         <div class="ngarsa-bubble-msg">
           <span class="ngarsa-bubble-tail"></span>
-          <div class="ngarsa-bubble-name">${r.name}</div>
-          <div class="ngarsa-bubble-text">${r.welcomeText}</div>
+          <div class="ngarsa-bubble-name">${n.name}</div>
+          <div class="ngarsa-bubble-text">${n.welcomeText}</div>
           <div class="ngarsa-bubble-time">${D()}</div>
         </div>
       </div>
       <div class="ngarsa-footer">
         <textarea
           class="ngarsa-input"
-          placeholder="${r.inputPlaceholder}"
+          placeholder="${n.inputPlaceholder}"
           rows="1"
-          aria-label="${r.inputPlaceholder}"
+          aria-label="${n.inputPlaceholder}"
         ></textarea>
-        <button type="button" class="ngarsa-send-btn" aria-label="${r.sendButtonAriaLabel}">
-          ${z}
+        <button type="button" class="ngarsa-send-btn" aria-label="${n.sendButtonAriaLabel}">
+          ${M}
         </button>
       </div>
     </div>
-    <button type="button" class="ngarsa-bubble" aria-label="${r.openButtonAriaLabel}">
-      ${R}
+    <button type="button" class="ngarsa-bubble" aria-label="${n.openButtonAriaLabel}">
+      ${q}
       <span class="ngarsa-bubble-badge" aria-hidden="true"></span>
     </button>
-  `),document.body.appendChild(n);let x=n.querySelector(".ngarsa-panel"),d=n.querySelector(".ngarsa-bubble"),F=n.querySelector(".ngarsa-close-btn"),V=n.querySelector(".ngarsa-send-btn"),b=n.querySelector(".ngarsa-input"),l=!!t.defaultOpen;l&&x.classList.add("is-open");let E=()=>{l||(l=true,x.classList.add("is-open"),b?.focus(),t.onOpen?.());},f=()=>{l&&(l=false,x.classList.remove("is-open"),d?.focus(),t.onClose?.());},S=()=>{l?f():E();},j=o=>o.replace(/[^\d]/g,""),L=()=>{let o=b.value.trim(),c=j(t.phoneNumber),s=encodeURIComponent(o),p=`https://wa.me/${c}${s?`?text=${s}`:""}`;t.onSend?.(o),window.open(p,"_blank","noopener,noreferrer");};d.addEventListener("click",S),F.addEventListener("click",f),V.addEventListener("click",L),b.addEventListener("keydown",o=>{o.key==="Enter"&&!o.shiftKey?(o.preventDefault(),L()):o.key==="Escape"&&f();});let k=o=>{o.key==="Escape"&&l&&f();};return document.addEventListener("keydown",k),{open:E,close:f,toggle:S,isOpen:()=>l,destroy:()=>{document.removeEventListener("keydown",k),n.remove();},updateOptions:o=>{t={...t,...o,theme:{...t.theme,...o.theme},copy:{...t.copy,...o.copy},assets:{...t.assets,...o.assets}};let c={...$,...t.theme};g.textContent=T(c,e);let s={...w,...t.copy},p={...A,...t.assets},N=n.querySelector(".ngarsa-name"),B=n.querySelector(".ngarsa-status"),U=n.querySelector(".ngarsa-bubble-text"),I=n.querySelector(".ngarsa-bubble-name"),h=n.querySelector(".ngarsa-avatar-img"),_=n.querySelector(".ngarsa-avatar-container");if(N&&(N.textContent=s.name),I&&(I.textContent=s.name),B&&(B.textContent=s.statusText),U&&(U.textContent=s.welcomeText),b&&(b.placeholder=s.inputPlaceholder),h){let v=p.avatarUrl||C(s.name,c.primaryColor,c.primaryTextColor);h.src=v,h.alt=`${s.name} Avatar`;}if(_&&(_.style.display=p.hideAvatar?"none":""),d){let v=p.bubbleIconUrl?`<img class="ngarsa-bubble-img" src="${p.bubbleIconUrl}" alt="${s.name}" />`:y;d.innerHTML=`
-        ${v}
+  `),document.body.appendChild(r);let h=r.querySelector(".ngarsa-panel"),p=r.querySelector(".ngarsa-bubble"),V=r.querySelector(".ngarsa-close-btn"),j=r.querySelector(".ngarsa-send-btn"),b=r.querySelector(".ngarsa-input"),c=!!a.defaultOpen;c&&h.classList.add("is-open");let k=()=>{c||(c=true,h.classList.add("is-open"),b?.focus(),a.onOpen?.());},u=()=>{c&&(c=false,h.classList.remove("is-open"),p?.focus(),a.onClose?.());},S=()=>{c?u():k();},G=o=>o.replace(/[^\d]/g,""),L=()=>{let o=b.value.trim(),g=G(a.phoneNumber),s=encodeURIComponent(o),l=`https://wa.me/${g}${s?`?text=${s}`:""}`;a.onSend?.(o),window.open(l,"_blank","noopener,noreferrer");};p.addEventListener("click",S),V.addEventListener("click",u),j.addEventListener("click",L),b.addEventListener("keydown",o=>{o.key==="Enter"&&!o.shiftKey?(o.preventDefault(),L()):o.key==="Escape"&&u();});let N=o=>{o.key==="Escape"&&c&&u();};return document.addEventListener("keydown",N),{open:k,close:u,toggle:S,isOpen:()=>c,destroy:()=>{document.removeEventListener("keydown",N),r.remove();},updateOptions:o=>{a={...a,...o,theme:{...a.theme,...o.theme},copy:{...a.copy,...o.copy},assets:{...a.assets,...o.assets}};let g={...w,...a.theme};d.textContent=C(g,e);let s={...T,...a.copy},l={...A,...a.assets},B=r.querySelector(".ngarsa-name"),I=r.querySelector(".ngarsa-status"),U=r.querySelector(".ngarsa-bubble-text"),_=r.querySelector(".ngarsa-bubble-name"),v=r.querySelector(".ngarsa-avatar-img"),O=r.querySelector(".ngarsa-avatar-container");if(B&&(B.textContent=s.name),_&&(_.textContent=s.name),I&&(I.textContent=s.statusText),U&&(U.textContent=s.welcomeText),b&&(b.placeholder=s.inputPlaceholder),v){let y=l.avatarUrl||E(s.name,g.primaryColor,g.primaryTextColor);v.src=y,v.alt=`${s.name} Avatar`;}O&&(O.style.display=l.hideAvatar?"none":"");let f=r.querySelector(".ngarsa-body-bg");if(f&&(!l.hideBackgroundPattern&&l.backgroundPatternUrl?(f.style.backgroundImage=`url('${l.backgroundPatternUrl}')`,f.style.display=""):(f.style.backgroundImage="none",f.style.display="none")),p){let y=l.bubbleIconUrl?`<img class="ngarsa-bubble-img" src="${l.bubbleIconUrl}" alt="${s.name}" />`:$;p.innerHTML=`
+        ${y}
         <span class="ngarsa-bubble-badge" aria-hidden="true"></span>
-      `,d.setAttribute("aria-label",s.openButtonAriaLabel);}},getElement:()=>n}}function P(a){return O(a)}if(typeof window<"u"&&typeof document<"u"){let a=document.currentScript;a&&a.dataset.phone&&P({phoneNumber:a.dataset.phone,copy:{name:a.dataset.name,welcomeText:a.dataset.text},theme:{primaryColor:a.dataset.color}});}exports.DEFAULT_ASSETS=A;exports.DEFAULT_COPY=w;exports.DEFAULT_THEME=$;exports.createNgarsaWidget=O;exports.generateAvatar=C;exports.init=P;return exports;})({});//# sourceMappingURL=index.global.js.map
+      `,p.setAttribute("aria-label",s.openButtonAriaLabel);}},getElement:()=>r}}function W(t){return H(t)}if(typeof window<"u"&&typeof document<"u"){let t=document.currentScript;t&&t.dataset.phone&&W({phoneNumber:t.dataset.phone,copy:{name:t.dataset.name,welcomeText:t.dataset.text},theme:{primaryColor:t.dataset.color}});}/**
+ * ngarsa-widget - Vector Icons & SVG Assets
+ *
+ * @author Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * @contact hello@ngarsa.com
+ * @license MIT
+ */
+/**
+ * ngarsa-widget - Default Configurations
+ *
+ * @author Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * @contact hello@ngarsa.com
+ * @license MIT
+ */
+/**
+ * ngarsa-widget - Style Sheet Generator
+ *
+ * @author Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * @contact hello@ngarsa.com
+ * @license MIT
+ */
+/**
+ * ngarsa-widget - Dynamic SVG Avatar Generator
+ * Generates an accessible, lightweight SVG Data URI avatar based on a name or brand.
+ *
+ * @author Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * @contact hello@ngarsa.com
+ * @license MIT
+ */
+/**
+ * ngarsa-widget - Core Widget Implementation
+ *
+ * @author Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * @contact hello@ngarsa.com
+ * @license MIT
+ */
+/**
+ * ngarsa-widget - Type Definitions
+ *
+ * @author Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * @contact hello@ngarsa.com
+ * @license MIT
+ */
+/**
+ * ngarsa-widget
+ * A lightweight, zero-dependency WhatsApp chat widget.
+ *
+ * @author Ngarsa (https://ngarsa.com) & Risyandi (https://risyandi.com)
+ * @contact hello@ngarsa.com
+ * @license MIT
+ */exports.DEFAULT_ASSETS=A;exports.DEFAULT_COPY=T;exports.DEFAULT_THEME=w;exports.createNgarsaWidget=H;exports.generateAvatar=E;exports.init=W;return exports;})({});//# sourceMappingURL=index.global.js.map
 //# sourceMappingURL=index.global.js.map
